@@ -1,5 +1,7 @@
 <h3>Events List</h3>
 
+<%= will_paginate @events %>
+
 <table class="table table-hover table-bordered">
   <thead>
     <th>Name</th>
@@ -21,9 +23,8 @@
     </td>
     <td>
       <% if current_user %>
-        <% if event.user_events.where(:user_id => current_user&.id).present? %>
-          <%= link_to 'UnAttend', event_unattend_path(event.id), method: :delete, remote: true,
-          :class => "btn" %>
+        <% if event.user_events.where(:user_id => current_user.id).present? %>
+          <%= link_to 'UnAttend', event_unattend_path(event.id), method: :delete, data: { confirm: "Are you sure?" }, remote: true, :class => "btn" %>
         <% else %>
           <%= link_to 'Attend', event_attend_path(event.id), method: :post, data: { confirm: "Are you sure?" }, remote: true, :class => "btn" %>
         <% end %>
@@ -33,9 +34,11 @@
   <% end %>
 </table>
 
+<%= will_paginate @events %>
 
 <style>
   .btn {
     background-color:#79899a;
   }
+
 </style>

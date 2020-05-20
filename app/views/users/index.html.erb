@@ -1,5 +1,7 @@
 <h3>Users List</h3>
 
+<%= will_paginate @events %>
+
 <table class="table table-hover table-bordered">
   <thead>
     <th>Name</th>
@@ -16,3 +18,5 @@
   </tr>
   <% end %>
 </table>
+
+<%= will_paginate @events %>
