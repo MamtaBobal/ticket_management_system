@@ -4,6 +4,7 @@
   <thead>
     <th>Name</th>
     <th>Date</th>
+    <th>Users</th>
 
   </thead>
   <% @events.each do |event| %>
@@ -14,6 +15,16 @@
     <td>
       <%= event.event_date.localtime.strftime("%d-%m-%Y %H:%M:%S") %>
     </td>
+    <td>
+      <%= link_to 'View Attendees', event_users_path(event.id) ,:class => "btn" %>
+    </td>
   </tr>
   <% end %>
 </table>
+
+
+<style>
+  .btn {
+    background-color:#79899a;
+  }
+</style>
