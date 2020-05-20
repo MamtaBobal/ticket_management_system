@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root "events#index"
   resources :events do
     get 'users', to: "users#index"
+    post 'attend', to: "user_events#create"
+    delete 'unattend', to: "user_events#destroy"
   end
 end
