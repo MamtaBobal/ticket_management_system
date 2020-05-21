@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Ticket Management System', "#", class: "button is-info" %>
+  <%= link_to 'Ticket Management System', root_path, class: "button is-info" %>
   <div class="navbar-collapse collapse" id="collapsingNavbar">
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %> 
@@ -23,7 +23,7 @@
 
 <style type="text/css">
   .navbar {
-    background-color: #cbdbde !important;
+    background-color: #c6d5e2 !important;
     border-radius: 0px !important;
     margin-bottom: 15px;
   }
