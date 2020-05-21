@@ -16,7 +16,10 @@ class UserEventsController < ApplicationController
 
   def check_event_date
     event = Event.find_by_id(params[:event_id])
-    errors[:base] << "It is a past event" if event.is_past_event?
+    if event.is_past_event?
+      flash[:alert] = "It is a past event"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 end
