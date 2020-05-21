@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :event do
-    name                               { Faker::Name.name }
+    name                               { Faker::Book.title }
     event_date                         { DateTime.now }
-    fee                                { Faker::Number.number(digits: 4) }
+    fee                                { [1000, 1200, 1500, 1700, 2000].sample }
   end
 end
  
