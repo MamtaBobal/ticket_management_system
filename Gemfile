@@ -5,8 +5,6 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -41,6 +39,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'rspec-rails', '~> 3.5'
+
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -53,7 +53,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '1.1.4'
 end
 
 group :test do
