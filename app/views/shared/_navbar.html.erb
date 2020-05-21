@@ -4,7 +4,12 @@
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %> 
         <li class="nav-item">
-          <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>
+          <% if current_user.gender == "male" %>
+            <%= image_tag "male.jpeg", :class => "image" %>
+          <% else %>
+            <%= image_tag "female.jpeg", :class => "image" %>
+          <% end %>
+          <%= link_to current_user.name, root_path, class: "button is-info" %>
         </li>
         <li class="nav-item">
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "button is-info" %>
@@ -32,5 +37,9 @@
   }
   .nav-item {
     margin: 5px;
+  }
+  .image {
+    width: 20px;
+    height: 20px;
   }
 </style>

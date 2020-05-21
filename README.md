@@ -1,24 +1,33 @@
-# README
+== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Ticket Management System
 
-Things you may want to cover:
+This is a simple ruby on rails application which displays a bunch of events. Users can register or login. They can visit an event page, attend an event and see who else is attending. Every Event has a ticket fee. Females will get 5% discount on ticket fee.
 
-* Ruby version
+## Dependencies
+            * Ruby Version    : 2.6.3
+            * Rails           : 6.0.3
+            * Bootstrap
+            * RSpec
 
-* System dependencies
+## Installation
+            $ git clone git@github.com:MamtaBobal/ticket_management_system.git
+            $ bundle install
+            $ rake db:create
+            $ rake db:migrate
+            $ rake db:seed
+            $ rails server
 
-* Configuration
+## Tests
+            $ rspec
 
-* Database creation
+## Male Credentials
+###### Email: naveen@gmail.com
+###### Password: 123456
 
-* Database initialization
+## Female Credentials
+###### Email: naina@gmail.com
+###### Password: 123456
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Heroku link
+###### https://ticket-managementsystem.herokuapp.com/

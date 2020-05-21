@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.create(email: "naina@gmail.com", name: "Naina", gender: "female", password: 123456)
+User.create(email: "naveen@gmail.com", name: "Naveen", gender: "male", password: 123456)
+
 1000.times do |i|
   Event.create(
                 name: Faker::Book.title,
