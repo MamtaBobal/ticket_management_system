@@ -7,18 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-100.times do |i|
+1000.times do |i|
   Event.create(
-                name: Faker::Name.name,
-                event_date:Faker::Time.between(from: DateTime.now + i, to: DateTime.now)
+                name: Faker::Book.title,
+                event_date:Faker::Time.between(from: DateTime.now + i, to: DateTime.now),
+                fee: [1000, 1200, 1500, 1700, 2000].sample
               )
 end
 
-1000.times do |i|
+5000.times do |i|
   User.create(
                name: Faker::Name.name,
                email: Faker::Internet.email,
-               gender: 1,
+               gender: %i[male female].sample,
                password: 123456
              )
+end
+
+2000.times do |i|
+  begin UserEvent.create( user_id: rand(1..5000), event_id: rand(1..1000) )
+  rescue => error
+    next
+  end
 end
