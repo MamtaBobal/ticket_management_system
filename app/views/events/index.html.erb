@@ -6,6 +6,7 @@
   <thead>
     <th>Name</th>
     <th>Date</th>
+    <th>Ticket Fee</th>
     <th>Users</th>
     <th>Attend/Unattend</th>
 
@@ -19,6 +20,9 @@
       <%= event.event_date.localtime.strftime("%d-%m-%Y %H:%M:%S") %>
     </td>
     <td>
+      <%= event.fee %>
+    </td>
+    <td>
       <%= link_to 'View Attendees', event_users_path(event.id) ,:class => "btn" %>
     </td>
     <td>
@@ -26,7 +30,8 @@
         <% if event.user_events.where(:user_id => current_user.id).present? %>
           <%= link_to 'UnAttend', event_unattend_path(event.id), method: :delete, data: { confirm: "Are you sure?" }, remote: true, :class => "btn" %>
         <% else %>
-          <%= link_to 'Attend', event_attend_path(event.id), method: :post, data: { confirm: "Are you sure?" }, remote: true, :class => "btn" %>
+          <% event_fee = event.get_ticket_fee(current_user) %>
+          <%= link_to 'Attend', event_attend_path(event.id), method: :post, data: { confirm: "You will have to pay Rs.#{event_fee} as ticket fee." }, remote: true, :class => "btn" %>
         <% end %>
       <% end %>
     </td>
